@@ -1,0 +1,139 @@
+Loopback Tutorial
+---
+Prereq:
+  TypeScript
+
+====
+npm i -g @loopback/cli
+
+Step0: lb4 phone-book-api
+
+
+Step1: Lets create Model, in the terminal
+  > lb4 model
+  Model Name: CustomerContacts
+  base class: Entity (because we will have unique id)
+
+Let's add a property to CustomerFeedback
+Enter an empty property name when done
+
+? Enter the property name: id
+? Property type: number
+? Is id the ID property? Yes
+? Is id generated automatically? No
+? Is it required?: Yes
+? Default value [leave blank for none]:
+
+Let's add another property to CustomerFeedback
+Enter an empty property name when done
+
+? Enter the property name: title
+? Property type: string
+? Is it required?: Yes
+? Default value [leave blank for none]:
+
+Let's add another property to CustomerFeedback
+Enter an empty property name when done
+
+? Enter the property name: fb_content
+? Property type: string
+? Is it required?: Yes
+? Default value [leave blank for none]:
+
+Let's add another property to CustomerFeedback
+Enter an empty property name when done
+
+? Enter the property name: email
+? Property type: string
+? Is it required?: Yes
+? Default value [leave blank for none]:
+
+Let's add another property to CustomerFeedback
+Enter an empty property name when done
+
+=====
+
+
+
+Step2:
+Create datasource for the model
+Models describe the shape of data
+
+>lb4 datasource
+? Datasource name: db
+? Select the connector for db: In-memory db (supported by StrongLoop)
+? window.localStorage key to use for persistence (browser only):
+? Full path to file for persistence (server only): /data/db.json
+   create src/datasources/db.datasource.json
+   create src/datasources/db.datasource.ts
+   update src/datasources/index.ts
+
+Datasource Db was created in src/datasources/
+
+====
+
+Learn about repositories
+Note on Repository:
+Models describe the shape of data,
+Repositories provide behavior like CRUD operations.
+
+Step3:
+> lb4 repository
+? Please select the datasource DbDatasource
+? Select the model(s) you want to generate a repository CustomerFeedback
+? Please select the repository base class DefaultCrudRepository (Legacy juggler
+bridge)
+   create src/repositories/customer-feedback.repository.ts
+   update src/repositories/index.ts
+
+Repository CustomerFeedbackRepository was created in src/repositories/
+
+===
+Step 4:
+Learn about controller
+A Controller is a class that implements
+operations defined by an application's API.
+It implements an application's business logic
+and acts as a bridge between the HTTP/REST API and domain/database models.
+
+>lb4 controller
+? Controller class name: CustomerFeedback
+Controller CustomerFeedback will be created in src/controllers/customer-feedback.controller.ts
+
+? What kind of controller would you like to generate? REST Controller with CRUD
+functions
+? What is the name of the model to use with this CRUD repository? CustomerFeedba
+ck
+? What is the name of your CRUD repository? CustomerFeedbackRepository
+? What is the name of ID property? id
+? What is the type of your ID? number
+? Is the id omitted when creating a new instance? No
+? What is the base HTTP path name of the CRUD operations? /feedback
+   create src/controllers/customer-feedback.controller.ts
+   update src/controllers/index.ts
+
+Controller CustomerFeedback was created in src/controllers/
+
+===
+Step 5
+
+Create a folder in the root folder
+/data/db.json
+
+Step6:
+===
+Correct the path in db.datasource.json --
+refer file property in the following object
+
+{
+  "name": "db",
+  "connector": "memory",
+  "localStorage": "",
+  "file": "./data/db.json"  // . is needed
+}
+
+
+Now try POST api endpoint
+
+
+

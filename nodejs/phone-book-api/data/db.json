@@ -1,0 +1,10 @@
+{
+  "ids": {
+    "CustomerContacts": 3
+  },
+  "models": {
+    "CustomerContacts": {
+      "1": "{\"id\":1,\"fullName\":\"arun\",\"phone\":342342,\"email\":\"a@b.com\",\"additionalProp1\":{}}"
+    }
+  }
+}
