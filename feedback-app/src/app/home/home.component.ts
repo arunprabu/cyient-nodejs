@@ -52,4 +52,12 @@ export class HomeComponent implements OnInit {
    // e.target.innerText = "Clicked";
   }
 
+
+  //Custom event related
+
+
+  onReportGeneratedHandler( event ){
+    console.log(event);
+  }
+
 }

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,9 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { CpbComponent } from './home/cpb/cpb.component';
 import { CebComponent } from './home/ceb/ceb.component';
+import { AddFeedbackComponent } from './feedback/add-feedback/add-feedback.component';
+import { FeedbackDetailsComponent } from './feedback/feedback-details/feedback-details.component';
+
 
 // Main Switching box 
 // Decorator -- takes in metadata as object
@@ -27,12 +31,16 @@ import { CebComponent } from './home/ceb/ceb.component';
     AboutComponent,
     ContactComponent,
     CpbComponent,
-    CebComponent
+    CebComponent,
+    AddFeedbackComponent,
+    FeedbackDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   // Step 3: AppModule should be bootstrapped with a Component -- AppComponent

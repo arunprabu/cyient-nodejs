@@ -1,1 +1,29 @@
-<p>feedback works!</p>
+<div class="container">
+    <div class="row">
+        <section class="col-sm-12 main-section ">
+            <div class="jumbotron">
+                <h1 class="display-4">feedback Manager App!</h1>
+                <a class="btn btn-primary btn-lg" routerLink="/feedback/new" role="button">Create New feedback</a>
+            </div>
+        </section>
+    </div>
+
+    <div class="row">
+        
+        <div class="card col-sm-3" *ngFor="let feedback of feedbackList">
+            <div class="card-body">
+                <h5 class="card-title">{{feedback.name }}</h5>
+                <p class="card-text">{{ feedback.email }}</p>
+                <a routerLink="/feedback/{{feedback.id}}" class="link">View Details</a>
+            </div>
+        </div>
+
+    </div>
+
+    <ng-template #contactsNotFound>
+        <div class="alert alert-danger">
+            No feedback Found!. You can add one!
+        </div>
+    </ng-template>
+
+</div>

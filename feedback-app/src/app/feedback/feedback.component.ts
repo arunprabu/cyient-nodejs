@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FeedbackService } from './feedback.service';
 
 @Component({
   selector: 'app-feedback',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedbackComponent implements OnInit {
 
-  constructor() { }
+  feedbackList: any[];
 
+  constructor( private feedbackService: FeedbackService) { 
+    console.log("Inside constructor");
+  }
+
+  //Life cycle Hook 
   ngOnInit() {
+    console.log("Inside ngOnInit");
+
+    // ideal place for you to fire ajax calls
+    this.feedbackService.getFeedbackList()
+      .subscribe( (res: any[]) => {
+        console.log(res);
+        this.feedbackList = res;
+      });
   }
 
 }

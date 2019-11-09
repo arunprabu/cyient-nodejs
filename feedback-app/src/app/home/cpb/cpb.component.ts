@@ -19,5 +19,4 @@ export class CpbComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

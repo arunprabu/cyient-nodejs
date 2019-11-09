@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Add Feedback</h1>
+        </div>
+
+        <!-- Step 3: patch up the html form with ts from group -->
+        <!-- Step 4: import ReactiveFormsModule in app.module.ts-->
+        <form [formGroup]="feedbackForm" 
+        class="col-md-6 offset-md-3" 
+        (ngSubmit)="onAddFeedbackHandler()">
+            
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <!-- Step5: patch up the formControls with the ts-->
+                    <input type="text" class="form-control" 
+                    placeholder="Enter Email" 
+                    formControlName="email"
+                    [ngClass]="{ 'is-invalid': feedbackForm.get('email').touched && 
+                    feedbackForm.get('email').invalid }" />
+                    <div *ngIf="feedbackForm.get('email').touched && feedbackForm.get('email').invalid" class="invalid-feedback">
+                        <div *ngIf="feedbackForm.get('email').errors.required">Email is required</div>
+                        <div *ngIf="feedbackForm.get('email').errors.email">Email seems to be not valid</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" 
+                    placeholder="Enter Title" formControlName="title"/>
+                    <div class="invalid-feedback">
+                        <div>Title is required</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Content</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" 
+                    placeholder="Enter Content" formControlName="content"/>
+                    <div class="invalid-feedback">
+                        <div>Content is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-success" *ngIf="isSaved">
+                Saved Successfully
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" 
+                    class="btn btn-primary" 
+                    [disabled]='feedbackForm.invalid'>Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
