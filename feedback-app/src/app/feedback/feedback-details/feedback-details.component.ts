@@ -33,8 +33,9 @@ export class FeedbackDetailsComponent implements OnInit {
   }
 
 
-  onUpdateHandler(){
+  async onUpdateHandler(){
     console.log(this.duplicateFeedbackData);
-    this.feedbackService.updateFeedback(this.duplicateFeedbackData)
+    var status = await this.feedbackService.updateFeedback(this.duplicateFeedbackData)
+    console.log(status);
   }
 }

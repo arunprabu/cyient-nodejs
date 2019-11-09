@@ -16,6 +16,7 @@ import { CpbComponent } from './home/cpb/cpb.component';
 import { CebComponent } from './home/ceb/ceb.component';
 import { AddFeedbackComponent } from './feedback/add-feedback/add-feedback.component';
 import { FeedbackDetailsComponent } from './feedback/feedback-details/feedback-details.component';
+import { EllipsisPipe } from './shared/pipes/ellipsis.pipe';
 
 
 // Main Switching box 
@@ -33,7 +34,8 @@ import { FeedbackDetailsComponent } from './feedback/feedback-details/feedback-d
     CpbComponent,
     CebComponent,
     AddFeedbackComponent,
-    FeedbackDetailsComponent
+    FeedbackDetailsComponent,
+    EllipsisPipe
   ],
   imports: [
     BrowserModule,

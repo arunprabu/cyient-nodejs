@@ -1,1 +1,19 @@
-<p>about works!</p>
+<div>
+    <p>{{today}}</p>
+
+    <p>{{today | date }}</p>
+
+    <p>{{today | date: 'dd/MMMM/yyyy hh:mm:ss a' }}</p>
+
+    <hr>
+    <p>Ellipsis Pipe </p>
+
+    <p>{{dummyText}}</p>
+
+    <p>{{ dummyText | ellipsis }}</p>
+
+    <p>{{ dummyText | ellipsis: '50' }}</p>
+
+    <p>{{ dummyText | ellipsis: '150' }}</p>
+
+</div>

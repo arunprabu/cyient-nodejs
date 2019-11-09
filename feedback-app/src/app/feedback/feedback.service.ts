@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, reduce } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +32,7 @@ export class FeedbackService {
     return this.http.get(this.restAPIUrl)
         .pipe( map( res  => {
           console.log(res);
-          return res; 
+          return res;
         }));
   }
 
@@ -49,5 +49,29 @@ export class FeedbackService {
 
   updateFeedback( feedbackData) {
     console.log( feedbackData );
+
+    let feedbackIdUrl = this.restAPIUrl+'/'+feedbackData.id;
+    // 
+
+    var updatePromise = new Promise( ( resolve, reject )=> {
+        this.http.put(feedbackIdUrl, feedbackData)
+        .toPromise()
+        .then( (res) => {
+          console.log(res);
+          resolve(res);
+        })
+        .catch( (err) => {
+          console.log(err);
+          reject(err);
+        })
+        .finally( () => {
+          console.log("It's over");
+        });
+    });
+
+    return updatePromise;
+
+    
+
   }
 }
