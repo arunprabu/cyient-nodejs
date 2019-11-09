@@ -1,0 +1,207 @@
+Reference Angular
+----
+http://notepad.pw/CyientNov2019Angular
+
+Git repo link:
+https://github.com/arunprabu/cyient-nodejs
+
+
+Angular 
+
+Prereq:
+----
+HTML, CSS, JS, OOP, TS 
+
+
+Dev Environment Setup
+----
+
+
+Angular 2  - CLI V 1.2.2    -- Oct 2016
+Angular 4 -  CLI V 1.4.4 .  -- May 2017 
+Angular 5 -  CLI V 1.6.2 or 1.7.2  -- Nov 2017 
+
+Angular 6 -  CLI V 6.1.2  -- May 2018 
+Angular 7 -  CLI V 7.2.1  -- Nov 2018 
+Angular 8 -  CLI V 8.3.2  -- Apr 2019 
+Angular 9 -  CLI V 9.x     -- Nov 2019/Dec 2019  
+
+npm i @angular/cli@7.2.1 -g   -- This will install Angular 7 CLI 
+
+=====
+
+Main Building Blocks
+---
+1. Components
+2. Directives
+3. Services 
+4. Router
+5. Guards
+6. Pipes 
+7. Interfaces 
+8. Classes/Models
+9. Modules 
+10. Forms 
+
+
+--------
+
+    Routing in Angular 
+        
+        Step 0: 
+            http://localhost:4200/       - HomeComponent 
+                ng g c home -is 
+            
+            http://localhost:4200/feedback   - FeedbackComponent 
+                ng g c feedback -is 
+
+            http://localhost:4200/about   - AboutComponent 
+                ng g c about -is 
+
+            http://localhost:4200/contact  - ContactComponent 
+                ng g c contact -is -it 
+
+        Step 1: 
+            in nav.component.html
+            <a href="/"> Home</a>
+            <a href="/feedback"> Home</a>
+
+        Step 2:
+            Configure the Routes in app-routing.module.ts 
+        
+        Step 3: 
+            Register the routes in app-routing.module.ts 
+            @NgModule({
+                imports: [RouterModule.forRoot(routes)], // registering the routes 
+                exports: [RouterModule]
+            })
+
+        Step 4: 
+            Let's load the component in between header and footer 
+
+
+        Step 5:
+            Check the app. URL should be stable. Component Loaded. 
+            But the page refreshes. 
+
+        Step 6: 
+            Fix Page Refresh Problem.
+
+        
+        Step 7: 
+            li should be like the following to set active menu 
+            <li class="nav-item" routerLinkActive="active" 
+                [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+        Step8: 
+            Other li's should not have [routerLinkActiveOptions]="{exact: true}"
+             
+
+Data Binding 
+----
+    TS => HTML 
+
+    Binding the data the TS has in HTML 
+
+1. String Interpolation 
+      TS => HTML --   {{ }}
+2. Property Binding 
+      TS => HTML  -- []
+3. Event binding 
+      TS => HTML  - ()
+4. Two Way Binding 
+        TS  <=> HTML    - [(ngModel)] 
+5. Custom Property Binding 
+6. Custom Event Binding 
+
+
+Cross Component Communication 
+---
+1. Parent to Child Component Communication
+    Custom Property Binding 
+    
+    
+2. Child to Parent Communication Communication
+    Custom Event binding -- child can send data to parent 
+    @ViewChild() .  -- Parent can access Child data 
+    @ViewChildren() . -- Parent can access data from multiple children 
+
+
+3. Any to Any Comp Communication
+    Prereq: Services, Observables, RxJS 
+
+====
+http://localhost:4200/feedback  -- list 
+
+http://localhost:4200/feedback/new  -- add feedback  
+    ng g c feedback/add-feedback -is 
+
+http://localhost:4200/feedback/1  --  
+    ng g c feedback/feedback-details -is 
+===
+
+
+Angular Forms
+---
+1. Template Driven Forms 
+
+    HTML,
+    Easiest
+    
+    Disadv: Not suitable for complex validations, Not suitable for Unit Testing 
+    Not preferred by compnanies 
+
+2. Reactive Forms 
+    HTML + TS 
+    Easy 
+
+    Adv: suitable for complex validations
+    suitable for unit testing 
+
+====
+
+
+Directives 
+----
+Special instr for the DOM 
+1. Attribute Directives 
+    Example: routerLink, ngClass, ngStyle
+
+2. Structural Directives 
+    Impact the structure of the page -- html 
+
+    *ngIf, *ngFor, ngSwitch 
+    
+
+What's Observable?
+        It's a collection that returned over time. 
+        It's a push, that sends multiple values
+        Observable is like restaurant kitchen.
+        If you subscribe to observable, it decides when to give information 
+    Now, What's RxJs?
+        Various method of operators, you can chain on Observables to filter data, sort, handle error...
+
+---
+Observable Example: https://jsbin.com/pefotekida/edit?js,console
+
+====
+
+Pipes
+--
+ Transform info from one format to another 
+
+ 1. Built in pipes 
+    json, 
+    date 
+
+2. Custom Pipes 
+    ng g p shared/pipes/ellipsis 
+    
+
+
+
+
+
+
