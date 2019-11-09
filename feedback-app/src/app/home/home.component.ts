@@ -29,6 +29,11 @@ export class HomeComponent implements OnInit {
   // two way binding related 
   course: string = 'Angular';
 
+  // Custom Property Binding Related -- the following will be sent to child comp 
+  listOfCompanies: string[] = [
+    'Cyient Madhapur', 'Cyient Bangalore'
+  ];
+
   constructor() { }
 
   ngOnInit() {
